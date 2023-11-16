@@ -1,6 +1,8 @@
 # Cpp Protobuf Basic
 
-This repository provides a basic example of a C++ project using Protocol Buffers with CMake. It demonstrates how to set up a simple project structure, integrate CMake for building, and use Protocol Buffers to define and generate C++ code.
+This repository provides a basic example of a C++ project using Protocol Buffers
+with CMake. It demonstrates how to set up a simple project structure, integrate
+CMake for building, and use Protocol Buffers to define and generate C++ code.
 
 ## Project Structure
 
@@ -8,19 +10,18 @@ This repository provides a basic example of a C++ project using Protocol Buffers
 CppProtobuf/
 ├── build
 ├── proto/
+|    └── CMakeLists.txt
 |    └── example.proto
 ├── src/
 |    └── main.cpp
 ├── .gitignore
 ├── CMakeLists.txt
-├── Makefile
 ├── README.md
 ```
 
-
-
 - `CMakeLists.txt`: CMake configuration file for building the project.
-- `build/`: Default directory for CMake builds. Created when used `make proto` command
+- `build/`: Default directory for CMake builds. Created when used `cmake`
+  command
 - `proto/`: Directory to store Protocol Buffers `.proto` files.
 - `src/`: Directory to store C++ source code files.
 - `.gitignore`: File specifying patterns to be ignored by version control.
@@ -30,6 +31,7 @@ CppProtobuf/
 
 - CMake
 - Protocol Buffers
+- Ninja
 
 Make sure to install these dependencies before building the project.
 
@@ -42,32 +44,34 @@ Make sure to install these dependencies before building the project.
    cd CppProtobuf
    ```
 
-2. Execute Makefile:
+2. Generate build files using CMake:
 
-    ```
-    make proto
-    ```
+   ```
+   cmake --preset clang -S .
+   ```
 
-3. Generate build files using CMake:
+   ```
+   cmake --preset gcc -S .
+   ```
 
-    ```
-    cd build
-    cmake ..
-    ```
+3. Build the project:
 
-4. Build the project:
+   ```
+   cd build/clang
+   ninja
+   ```
 
-    ```
-    make
-    ```
+   ```
+   cd build/gcc
+   ninja
+   ```
 
-5. Run the executable:
+4. Run the executable:
 
-    ```
-    ./my_app
-    ```
-
-
+   ```
+   ./my_app
+   ```
 
 ## License
+
 This project is licensed under the MIT License.
