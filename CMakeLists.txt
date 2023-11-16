@@ -15,4 +15,4 @@ target_compile_definitions(my_app PRIVATE cxx_std_20)
 
 # Link the "my_app" target with my protobuf lib.
 # this imports the dependencies
-target_link_libraries(my_app PUBLIC myproto)
+target_link_libraries(my_app PRIVATE myproto)

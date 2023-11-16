@@ -11,7 +11,7 @@ set(PROTO_FILES
 # Add Library target with protobuf sources
 #
 
-add_library(myproto ${PROTO_FILES} )
+add_library(myproto STATIC ${PROTO_FILES} )
 target_include_directories(myproto INTERFACE ${CMAKE_CURRENT_BINARY_DIR})
 
 target_link_libraries(myproto
